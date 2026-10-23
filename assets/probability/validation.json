@@ -1,0 +1,12 @@
+{
+  "bytes": 12867658,
+  "sha256": "076e96f05968f37ff86ae253cbf467e8a7f8dffd3c74be8cf3f0a2e7d4dbb1f7",
+  "contexts": 150000,
+  "transitions": 606313,
+  "sourceRows": 988826,
+  "trainingSequences": 817943,
+  "trainingTokens": 4944896,
+  "testSequences": 45160,
+  "developmentSequences": 45415,
+  "duplicateNormalizedSequences": 92781
+}

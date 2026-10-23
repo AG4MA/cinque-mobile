@@ -1,0 +1,12 @@
+{
+  "bytes": 8313801,
+  "sha256": "b868aac7d44df3a824c40aa39c664362927bbc6801b5ee7ae8e51cd7eac6fa5c",
+  "contextCount": 150000,
+  "transitionCount": 473711,
+  "sourceRows": 988826,
+  "trainingSequences": 863358,
+  "trainingTokens": 5219812,
+  "holdoutSequences": 45160,
+  "contributors": 737,
+  "checks": "source hash, deterministic disjoint holdout, sorted unique contexts, context order1..3, candidate count1..8, observed counts>=2, JSON serialization, size<15MB"
+}

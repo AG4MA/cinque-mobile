@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "options": {
+    "lexicalMix": 0.5,
+    "openingMix": 0.95,
+    "contextStrength": 0.8,
+    "temperature": 1
+  },
+  "fittedOn": "DEV only, exact-normalized sequence SHA256 modulo20=1; TEST modulo20=0 was not read by calibration.",
+  "objective": "Minimum mean conditional-next-letter negative log likelihood in nats across equal-size initial/body x prefix0/1/2 strata.",
+  "devSampleSha256": "59aa0c4c41ba50895b25868f868b129bda407cc426d25f3ee054765949ac567c",
+  "dataHashes": {
+    "vocabulary": "cf4482aeeed161fcfdb4bb6a6ca36ba10020b618bee0b863650aaba0b73e5c68",
+    "model": "076e96f05968f37ff86ae253cbf467e8a7f8dffd3c74be8cf3f0a2e7d4dbb1f7",
+    "engine": "423ea786b8266cff54516b96c35b5702296877fd14e9a9fdc41bc6c509b2f2b4",
+    "probabilityIndex": "630529ed4f7b3a87136724e2435d1c930c1682ea8423a15164dfbfd218b85587"
+  },
+  "devPositions": 2400,
+  "devSelectedMetrics": {
+    "positions": 2400,
+    "letterNllNats": 1.4572512,
+    "letterBrier": 0.5742721,
+    "letterTop1Ece10Bins": 0.0168125,
+    "letterTop4": 0.7941667,
+    "letterTop8": 0.8933333,
+    "wordTop3": 0.5470833,
+    "actualFirstPageHitRate": 0.88,
+    "meanFirstPageLetters": 5.6333333,
+    "predictedFirstPageCoverage": 0.8950639,
+    "idealizedLetterTapsWithAbc": 1.12,
+    "meanLetterTapsFollowingRankedPages": 1.1395833,
+    "unreachableFromRankedPagesRate": 0,
+    "desktopPredictionMedianMs": 0.0344,
+    "desktopPredictionP95Ms": 0.1469,
+    "calibrationBins": [
+      {
+        "from": 0,
+        "to": 0.1,
+        "samples": 2,
+        "meanConfidence": 0.0940012,
+        "accuracy": 0
+      },
+      {
+        "from": 0.1,
+        "to": 0.2,
+        "samples": 542,
+        "meanConfidence": 0.1274372,
+        "accuracy": 0.1125461
+      },
+      {
+        "from": 0.2,
+        "to": 0.3,
+        "samples": 230,
+        "meanConfidence": 0.2517728,
+        "accuracy": 0.2565217
+      },
+      {
+        "from": 0.3,
+        "to": 0.4,
+        "samples": 167,
+        "meanConfidence": 0.3518946,
+        "accuracy": 0.4251497
+      },
+      {
+        "from": 0.4,
+        "to": 0.5,
+        "samples": 341,
+        "meanConfidence": 0.4420864,
+        "accuracy": 0.4516129
+      },
+      {
+        "from": 0.5,
+        "to": 0.6,
+        "samples": 207,
+        "meanConfidence": 0.5600828,
+        "accuracy": 0.4975845
+      },
+      {
+        "from": 0.6,
+        "to": 0.7,
+        "samples": 118,
+        "meanConfidence": 0.6463258,
+        "accuracy": 0.6610169
+      },
+      {
+        "from": 0.7,
+        "to": 0.8,
+        "samples": 143,
+        "meanConfidence": 0.7456614,
+        "accuracy": 0.7482517
+      },
+      {
+        "from": 0.8,
+        "to": 0.9,
+        "samples": 118,
+        "meanConfidence": 0.8568092,
+        "accuracy": 0.8559322
+      },
+      {
+        "from": 0.9,
+        "to": 1,
+        "samples": 532,
+        "meanConfidence": 0.9574663,
+        "accuracy": 0.9567669
+      }
+    ]
+  },
+  "temperatureGrid": [
+    0.65,
+    0.8,
+    1,
+    1.1,
+    1.2,
+    1.35,
+    1.6,
+    2
+  ],
+  "candidateConfigurations": [
+    {
+      "lexicalMix": 0.5,
+      "openingMix": 0.65,
+      "contextStrength": 0.8
+    },
+    {
+      "lexicalMix": 0.5,
+      "openingMix": 0.65,
+      "contextStrength": 0.9
+    },
+    {
+      "lexicalMix": 0.5,
+      "openingMix": 0.65,
+      "contextStrength": 1
+    },
+    {
+      "lexicalMix": 0.5,
+      "openingMix": 0.85,
+      "contextStrength": 0.8
+    },
+    {
+      "lexicalMix": 0.5,
+      "openingMix": 0.85,
+      "contextStrength": 0.9
+    },
+    {
+      "lexicalMix": 0.5,
+      "openingMix": 0.85,
+      "contextStrength": 1
+    },
+    {
+      "lexicalMix": 0.5,
+      "openingMix": 0.95,
+      "contextStrength": 0.8
+    },
+    {
+      "lexicalMix": 0.5,
+      "openingMix": 0.95,
+      "contextStrength": 0.9
+    },
+    {
+      "lexicalMix": 0.5,
+      "openingMix": 0.95,
+      "contextStrength": 1
+    },
+    {
+      "lexicalMix": 0.75,
+      "openingMix": 0.65,
+      "contextStrength": 0.8
+    },
+    {
+      "lexicalMix": 0.75,
+      "openingMix": 0.65,
+      "contextStrength": 0.9
+    },
+    {
+      "lexicalMix": 0.75,
+      "openingMix": 0.65,
+      "contextStrength": 1
+    },
+    {
+      "lexicalMix": 0.75,
+      "openingMix": 0.85,
+      "contextStrength": 0.8
+    },
+    {
+      "lexicalMix": 0.75,
+      "openingMix": 0.85,
+      "contextStrength": 0.9
+    },
+    {
+      "lexicalMix": 0.75,
+      "openingMix": 0.85,
+      "contextStrength": 1
+    },
+    {
+      "lexicalMix": 0.75,
+      "openingMix": 0.95,
+      "contextStrength": 0.8
+    },
+    {
+      "lexicalMix": 0.75,
+      "openingMix": 0.95,
+      "contextStrength": 0.9
+    },
+    {
+      "lexicalMix": 0.75,
+      "openingMix": 0.95,
+      "contextStrength": 1
+    },
+    {
+      "lexicalMix": 0.9,
+      "openingMix": 0.65,
+      "contextStrength": 0.8
+    },
+    {
+      "lexicalMix": 0.9,
+      "openingMix": 0.65,
+      "contextStrength": 0.9
+    },
+    {
+      "lexicalMix": 0.9,
+      "openingMix": 0.65,
+      "contextStrength": 1
+    },
+    {
+      "lexicalMix": 0.9,
+      "openingMix": 0.85,
+      "contextStrength": 0.8
+    },
+    {
+      "lexicalMix": 0.9,
+      "openingMix": 0.85,
+      "contextStrength": 0.9
+    },
+    {
+      "lexicalMix": 0.9,
+      "openingMix": 0.85,
+      "contextStrength": 1
+    },
+    {
+      "lexicalMix": 0.9,
+      "openingMix": 0.95,
+      "contextStrength": 0.8
+    },
+    {
+      "lexicalMix": 0.9,
+      "openingMix": 0.95,
+      "contextStrength": 0.9
+    },
+    {
+      "lexicalMix": 0.9,
+      "openingMix": 0.95,
+      "contextStrength": 1
+    }
+  ],
+  "limitations": "Same-corpus calibration; external wordfreq training may overlap. Temperature only calibrates letters conditional on continuing the current token, not end-of-word or word suggestions."
+}

@@ -1,0 +1,1853 @@
+{
+  "version": 1,
+  "testSampleSha256": "33daa4f8af01ec610e10ec5c140cfc53704a1ec3b1941853e48e2ec5881c083c",
+  "devSampleSha256": "59aa0c4c41ba50895b25868f868b129bda407cc426d25f3ee054765949ac567c",
+  "calibrationSha256": "f0bb5f8e5e4bc56c14118868d1da5432e2af4fb67842e8b2ec66e9f5639a30cb",
+  "dataHashes": {
+    "vocabulary": "cf4482aeeed161fcfdb4bb6a6ca36ba10020b618bee0b863650aaba0b73e5c68",
+    "model": "076e96f05968f37ff86ae253cbf467e8a7f8dffd3c74be8cf3f0a2e7d4dbb1f7",
+    "engine": "423ea786b8266cff54516b96c35b5702296877fd14e9a9fdc41bc6c509b2f2b4",
+    "probabilityIndex": "630529ed4f7b3a87136724e2435d1c930c1682ea8423a15164dfbfd218b85587"
+  },
+  "baselineHashes": {
+    "engine": "13c5d263772e89ec6c162c4bab4cc5658fa1625090ae375307a9fd6cb3c5cafc",
+    "lexical": "7a0280a730db05a10394567de689654eca962f828bc01fdeacd2beb150178d37",
+    "opening": "e58c932c775c3cb520912fbd3fb49677e3e72bc9d50e260a39532f204d2c7136",
+    "contextData": "b868aac7d44df3a824c40aa39c664362927bbc6801b5ee7ae8e51cd7eac6fa5c",
+    "openingData": "9c6dbc3394988a9c4f64820af7ef60afa1492fe6e50a6b794fda8457f24e2596"
+  },
+  "policyHashes": {
+    "adaptive": "12305b5c6412439e12be1757e5c5be1f3591cc5e5f18a4f188c92fbe5d8c2a55",
+    "pages": "4fbd5dc97eac511b65316a007b622cea36bcb7fd30fb98aa093e99a13d7d2a24",
+    "cost": "52759f24606bd19d0f08a45b9549fc0f0da465f60510d2e4d1777e16ef356320"
+  },
+  "options": {
+    "lexicalMix": 0.5,
+    "openingMix": 0.95,
+    "contextStrength": 0.8,
+    "temperature": 1
+  },
+  "sampling": {
+    "version": 1,
+    "split": "test",
+    "sourceSha256": "05853b510a67ad0615b993e29ae7cecb482af12524a52b9646dcfe76ea29afa3",
+    "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/ita/ita_sentences_detailed.tsv.bz2",
+    "sourceSnapshotDate": "2026-10-10",
+    "license": "CC-BY-2.0-FR",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/fr/",
+    "attribution": "Tatoeba and sentence contributors. Each sample retains its public sentence ID; the complete contributor list is in assets/context/CONTRIBUTORS.txt.",
+    "splitRule": "SHA256 of normalized space-joined token sequence, first 8 bytes big-endian modulo20: TEST0, DEV1, TRAIN2..19. Exact normalized sequences deduplicated before splitting.",
+    "sampling": "Lowest SHA256(cinque-eval-v1|sequenceSha|wordPosition|prefixLength) per initial/body x prefix0/1/2 stratum. Every eligible word position participates. Words of length<=prefixLength excluded. Equal-size strata are macro-averaged, not corpus-prevalence weighted.",
+    "samplesPerStratum": 800,
+    "eligiblePositions": {
+      "initial:0": 45160,
+      "initial:1": 42035,
+      "initial:2": 30566,
+      "body:0": 228027,
+      "body:1": 210760,
+      "body:2": 171232
+    },
+    "sequences": {
+      "train": 817943,
+      "dev": 45415,
+      "test": 45160
+    }
+  },
+  "method": "Frozen TEST, same exact text and targets for current StatisticalEngine+OpeningPolicy baseline and ProbabilisticEngine. Prefix0/1/2, excluding targets already entirely revealed. Letter scores normalized over continuing letters. NLL uses natural log and a 1e-12 floor for unseen letters; multiclass Brier sums over the alphabet. Top1 ECE uses 10 equal-width bins. Macro-average six equal-sized strata; report each separately.",
+  "interactionEstimate": "Actual shipped buildLetterPages with new cost policy versus frozen old 90% score-coverage policy, cap8. Idealized letter taps choose shortest route: page index+1, or ABC+letter (2 taps). Excludes word completion, visual search, motion, correction and learning; not measured human typing speed. Repeated targets in tail pages use earliest occurrence.",
+  "startup": {
+    "desktopBaselineConstructionMs": 39.5662,
+    "desktopUpdatedConstructionMs": 592.1566,
+    "scope": "Single desktop Node process, all JSON already parsed for both models. Constructors include index construction. Not an end-to-end launch benchmark or phone measurement."
+  },
+  "baseline": {
+    "all": {
+      "positions": 4800,
+      "letterNllNats": 1.6111478,
+      "letterBrier": 0.6287882,
+      "letterTop1Ece10Bins": 0.0333321,
+      "letterTop4": 0.7816667,
+      "letterTop8": 0.896875,
+      "wordTop3": 0.5145833,
+      "actualFirstPageHitRate": 0.87875,
+      "meanFirstPageLetters": 5.825,
+      "predictedFirstPageCoverage": 0.8841651,
+      "idealizedLetterTapsWithAbc": 1.12125,
+      "meanLetterTapsFollowingRankedPages": 1.1420833,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.078,
+      "desktopPredictionP95Ms": 4.0791,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 800,
+          "meanConfidence": 0.0972121,
+          "accuracy": 0.09875
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 135,
+          "meanConfidence": 0.1693383,
+          "accuracy": 0.1185185
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 694,
+          "meanConfidence": 0.2522706,
+          "accuracy": 0.2247839
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 566,
+          "meanConfidence": 0.3536867,
+          "accuracy": 0.3374558
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 605,
+          "meanConfidence": 0.445341,
+          "accuracy": 0.4181818
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 416,
+          "meanConfidence": 0.5342909,
+          "accuracy": 0.6682692
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 231,
+          "meanConfidence": 0.6462906,
+          "accuracy": 0.7056277
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 561,
+          "meanConfidence": 0.7570905,
+          "accuracy": 0.8039216
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 591,
+          "meanConfidence": 0.8364045,
+          "accuracy": 0.8477157
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 201,
+          "meanConfidence": 0.9661185,
+          "accuracy": 0.9900498
+        }
+      ]
+    },
+    "initial": {
+      "positions": 2400,
+      "letterNllNats": 1.6953109,
+      "letterBrier": 0.6696959,
+      "letterTop1Ece10Bins": 0.0446224,
+      "letterTop4": 0.7525,
+      "letterTop8": 0.8741667,
+      "wordTop3": 0.4991667,
+      "actualFirstPageHitRate": 0.8641667,
+      "meanFirstPageLetters": 5.905,
+      "predictedFirstPageCoverage": 0.8465198,
+      "idealizedLetterTapsWithAbc": 1.1358333,
+      "meanLetterTapsFollowingRankedPages": 1.155,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.2596,
+      "desktopPredictionP95Ms": 4.8206,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 800,
+          "meanConfidence": 0.0972121,
+          "accuracy": 0.09875
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 288,
+          "meanConfidence": 0.2484364,
+          "accuracy": 0.2534722
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 251,
+          "meanConfidence": 0.3607958,
+          "accuracy": 0.374502
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 304,
+          "meanConfidence": 0.4381311,
+          "accuracy": 0.4177632
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 250,
+          "meanConfidence": 0.5297301,
+          "accuracy": 0.78
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 101,
+          "meanConfidence": 0.6462193,
+          "accuracy": 0.7425743
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 149,
+          "meanConfidence": 0.7308201,
+          "accuracy": 0.8724832
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 211,
+          "meanConfidence": 0.8300272,
+          "accuracy": 0.8341232
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 46,
+          "meanConfidence": 0.9889202,
+          "accuracy": 1
+        }
+      ]
+    },
+    "initialPrefix0": {
+      "positions": 800,
+      "letterNllNats": 2.8486624,
+      "letterBrier": 0.9342432,
+      "letterTop1Ece10Bins": 0.0015379,
+      "letterTop4": 0.3575,
+      "letterTop8": 0.64125,
+      "wordTop3": 0.14625,
+      "actualFirstPageHitRate": 0.64125,
+      "meanFirstPageLetters": 8,
+      "predictedFirstPageCoverage": 0.649939,
+      "idealizedLetterTapsWithAbc": 1.35875,
+      "meanLetterTapsFollowingRankedPages": 1.41375,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 3.7098,
+      "desktopPredictionP95Ms": 6.1569,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 800,
+          "meanConfidence": 0.0972121,
+          "accuracy": 0.09875
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        }
+      ]
+    },
+    "initialPrefix1": {
+      "positions": 800,
+      "letterNllNats": 1.3051393,
+      "letterBrier": 0.6250068,
+      "letterTop1Ece10Bins": 0.0519652,
+      "letterTop4": 0.94125,
+      "letterTop8": 0.99125,
+      "wordTop3": 0.62375,
+      "actualFirstPageHitRate": 0.965,
+      "meanFirstPageLetters": 4.7,
+      "predictedFirstPageCoverage": 0.9464008,
+      "idealizedLetterTapsWithAbc": 1.035,
+      "meanLetterTapsFollowingRankedPages": 1.0375,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.2258,
+      "desktopPredictionP95Ms": 0.698,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 202,
+          "meanConfidence": 0.2460675,
+          "accuracy": 0.2227723
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 159,
+          "meanConfidence": 0.364438,
+          "accuracy": 0.3836478
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 249,
+          "meanConfidence": 0.4363444,
+          "accuracy": 0.4096386
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 13,
+          "meanConfidence": 0.5705279,
+          "accuracy": 0.8461538
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 46,
+          "meanConfidence": 0.6351148,
+          "accuracy": 0.5869565
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 99,
+          "meanConfidence": 0.7192025,
+          "accuracy": 0.9292929
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 4,
+          "meanConfidence": 0.8634937,
+          "accuracy": 1
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 28,
+          "meanConfidence": 0.9993204,
+          "accuracy": 1
+        }
+      ]
+    },
+    "initialPrefix2": {
+      "positions": 800,
+      "letterNllNats": 0.9321312,
+      "letterBrier": 0.4498376,
+      "letterTop1Ece10Bins": 0.0988112,
+      "letterTop4": 0.95875,
+      "letterTop8": 0.99,
+      "wordTop3": 0.7275,
+      "actualFirstPageHitRate": 0.98625,
+      "meanFirstPageLetters": 5.015,
+      "predictedFirstPageCoverage": 0.9432195,
+      "idealizedLetterTapsWithAbc": 1.01375,
+      "meanLetterTapsFollowingRankedPages": 1.01375,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.1054,
+      "desktopPredictionP95Ms": 0.3095,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 86,
+          "meanConfidence": 0.2540005,
+          "accuracy": 0.3255814
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 92,
+          "meanConfidence": 0.354501,
+          "accuracy": 0.3586957
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 55,
+          "meanConfidence": 0.4462198,
+          "accuracy": 0.4545455
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 237,
+          "meanConfidence": 0.5274922,
+          "accuracy": 0.7763713
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 55,
+          "meanConfidence": 0.6555067,
+          "accuracy": 0.8727273
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 50,
+          "meanConfidence": 0.7538231,
+          "accuracy": 0.76
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 207,
+          "meanConfidence": 0.8293805,
+          "accuracy": 0.8309179
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 18,
+          "meanConfidence": 0.9727422,
+          "accuracy": 1
+        }
+      ]
+    },
+    "body": {
+      "positions": 2400,
+      "letterNllNats": 1.5269847,
+      "letterBrier": 0.5878806,
+      "letterTop1Ece10Bins": 0.031811,
+      "letterTop4": 0.8108333,
+      "letterTop8": 0.9195833,
+      "wordTop3": 0.53,
+      "actualFirstPageHitRate": 0.8933333,
+      "meanFirstPageLetters": 5.745,
+      "predictedFirstPageCoverage": 0.9218105,
+      "idealizedLetterTapsWithAbc": 1.1066667,
+      "meanLetterTapsFollowingRankedPages": 1.1291667,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0188,
+      "desktopPredictionP95Ms": 0.0514,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 135,
+          "meanConfidence": 0.1693383,
+          "accuracy": 0.1185185
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 406,
+          "meanConfidence": 0.2549904,
+          "accuracy": 0.2044335
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 315,
+          "meanConfidence": 0.348022,
+          "accuracy": 0.3079365
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 301,
+          "meanConfidence": 0.4526227,
+          "accuracy": 0.4186047
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 166,
+          "meanConfidence": 0.5411597,
+          "accuracy": 0.5
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 130,
+          "meanConfidence": 0.6463459,
+          "accuracy": 0.6769231
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 412,
+          "meanConfidence": 0.7665912,
+          "accuracy": 0.7791262
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 380,
+          "meanConfidence": 0.8399455,
+          "accuracy": 0.8552632
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 155,
+          "meanConfidence": 0.9593516,
+          "accuracy": 0.9870968
+        }
+      ]
+    },
+    "bodyPrefix0": {
+      "positions": 800,
+      "letterNllNats": 2.335372,
+      "letterBrier": 0.8049031,
+      "letterTop1Ece10Bins": 0.066237,
+      "letterTop4": 0.64125,
+      "letterTop8": 0.81,
+      "wordTop3": 0.4025,
+      "actualFirstPageHitRate": 0.80875,
+      "meanFirstPageLetters": 7.9675,
+      "predictedFirstPageCoverage": 0.8683064,
+      "idealizedLetterTapsWithAbc": 1.19125,
+      "meanLetterTapsFollowingRankedPages": 1.23875,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.029,
+      "desktopPredictionP95Ms": 0.0523,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 115,
+          "meanConfidence": 0.1667755,
+          "accuracy": 0.1130435
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 271,
+          "meanConfidence": 0.2551381,
+          "accuracy": 0.202952
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 181,
+          "meanConfidence": 0.348058,
+          "accuracy": 0.2928177
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 114,
+          "meanConfidence": 0.4482548,
+          "accuracy": 0.5
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 43,
+          "meanConfidence": 0.5520341,
+          "accuracy": 0.4883721
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 41,
+          "meanConfidence": 0.6450085,
+          "accuracy": 0.8292683
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 35,
+          "meanConfidence": 0.7291891,
+          "accuracy": 0.9142857
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        }
+      ]
+    },
+    "bodyPrefix1": {
+      "positions": 800,
+      "letterNllNats": 1.1974292,
+      "letterBrier": 0.523247,
+      "letterTop1Ece10Bins": 0.0513442,
+      "letterTop4": 0.91125,
+      "letterTop8": 0.98,
+      "wordTop3": 0.5975,
+      "actualFirstPageHitRate": 0.93625,
+      "meanFirstPageLetters": 4.4525,
+      "predictedFirstPageCoverage": 0.9517488,
+      "idealizedLetterTapsWithAbc": 1.06375,
+      "meanLetterTapsFollowingRankedPages": 1.075,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0157,
+      "desktopPredictionP95Ms": 0.0254,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 7,
+          "meanConfidence": 0.1830198,
+          "accuracy": 0.1428571
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 53,
+          "meanConfidence": 0.2697636,
+          "accuracy": 0.2075472
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 81,
+          "meanConfidence": 0.3562824,
+          "accuracy": 0.308642
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 107,
+          "meanConfidence": 0.4599511,
+          "accuracy": 0.3925234
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 41,
+          "meanConfidence": 0.540446,
+          "accuracy": 0.5609756
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 46,
+          "meanConfidence": 0.6432571,
+          "accuracy": 0.6956522
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 200,
+          "meanConfidence": 0.7697547,
+          "accuracy": 0.665
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 216,
+          "meanConfidence": 0.8374914,
+          "accuracy": 0.8287037
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 49,
+          "meanConfidence": 0.9730182,
+          "accuracy": 0.9795918
+        }
+      ]
+    },
+    "bodyPrefix2": {
+      "positions": 800,
+      "letterNllNats": 1.0481529,
+      "letterBrier": 0.4354917,
+      "letterTop1Ece10Bins": 0.0698767,
+      "letterTop4": 0.88,
+      "letterTop8": 0.96875,
+      "wordTop3": 0.59,
+      "actualFirstPageHitRate": 0.935,
+      "meanFirstPageLetters": 4.815,
+      "predictedFirstPageCoverage": 0.9453761,
+      "idealizedLetterTapsWithAbc": 1.065,
+      "meanLetterTapsFollowingRankedPages": 1.07375,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0166,
+      "desktopPredictionP95Ms": 0.1042,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 13,
+          "meanConfidence": 0.1846424,
+          "accuracy": 0.1538462
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 82,
+          "meanConfidence": 0.2449537,
+          "accuracy": 0.2073171
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 53,
+          "meanConfidence": 0.3352751,
+          "accuracy": 0.3584906
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 80,
+          "meanConfidence": 0.4490454,
+          "accuracy": 0.3375
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 82,
+          "meanConfidence": 0.5358141,
+          "accuracy": 0.4756098
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 43,
+          "meanConfidence": 0.6509254,
+          "accuracy": 0.5116279
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 177,
+          "meanConfidence": 0.7704125,
+          "accuracy": 0.8813559
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 164,
+          "meanConfidence": 0.8431779,
+          "accuracy": 0.8902439
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 106,
+          "meanConfidence": 0.953034,
+          "accuracy": 0.990566
+        }
+      ]
+    }
+  },
+  "updated": {
+    "all": {
+      "positions": 4800,
+      "letterNllNats": 1.4833437,
+      "letterBrier": 0.5885301,
+      "letterTop1Ece10Bins": 0.0175066,
+      "letterTop4": 0.801875,
+      "letterTop8": 0.9033333,
+      "wordTop3": 0.5360417,
+      "actualFirstPageHitRate": 0.8879167,
+      "meanFirstPageLetters": 5.62875,
+      "predictedFirstPageCoverage": 0.8949261,
+      "idealizedLetterTapsWithAbc": 1.1120833,
+      "meanLetterTapsFollowingRankedPages": 1.1266667,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0179,
+      "desktopPredictionP95Ms": 0.1117,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 5,
+          "meanConfidence": 0.0931654,
+          "accuracy": 0.2
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 1076,
+          "meanConfidence": 0.1256153,
+          "accuracy": 0.1152416
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 445,
+          "meanConfidence": 0.2524542,
+          "accuracy": 0.2719101
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 397,
+          "meanConfidence": 0.3525368,
+          "accuracy": 0.3350126
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 632,
+          "meanConfidence": 0.4417926,
+          "accuracy": 0.4636076
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 491,
+          "meanConfidence": 0.5614745,
+          "accuracy": 0.5397149
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 213,
+          "meanConfidence": 0.6517762,
+          "accuracy": 0.6150235
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 275,
+          "meanConfidence": 0.7512071,
+          "accuracy": 0.7090909
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 208,
+          "meanConfidence": 0.8594742,
+          "accuracy": 0.8076923
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 1058,
+          "meanConfidence": 0.9584768,
+          "accuracy": 0.9565217
+        }
+      ]
+    },
+    "initial": {
+      "positions": 2400,
+      "letterNllNats": 1.5733059,
+      "letterBrier": 0.6268653,
+      "letterTop1Ece10Bins": 0.0175917,
+      "letterTop4": 0.77875,
+      "letterTop8": 0.8779167,
+      "wordTop3": 0.5025,
+      "actualFirstPageHitRate": 0.8691667,
+      "meanFirstPageLetters": 5.68125,
+      "predictedFirstPageCoverage": 0.8705051,
+      "idealizedLetterTapsWithAbc": 1.1308333,
+      "meanLetterTapsFollowingRankedPages": 1.1441667,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0109,
+      "desktopPredictionP95Ms": 0.0268,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 802,
+          "meanConfidence": 0.1157717,
+          "accuracy": 0.1097257
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 115,
+          "meanConfidence": 0.2612869,
+          "accuracy": 0.3130435
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 153,
+          "meanConfidence": 0.3575541,
+          "accuracy": 0.3464052
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 404,
+          "meanConfidence": 0.4368583,
+          "accuracy": 0.4876238
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 281,
+          "meanConfidence": 0.5746439,
+          "accuracy": 0.5765125
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 58,
+          "meanConfidence": 0.6609308,
+          "accuracy": 0.6724138
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 117,
+          "meanConfidence": 0.7542763,
+          "accuracy": 0.7350427
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 40,
+          "meanConfidence": 0.8759365,
+          "accuracy": 0.95
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 430,
+          "meanConfidence": 0.9353484,
+          "accuracy": 0.9418605
+        }
+      ]
+    },
+    "initialPrefix0": {
+      "positions": 800,
+      "letterNllNats": 2.7877122,
+      "letterBrier": 0.9283242,
+      "letterTop1Ece10Bins": 0.0056147,
+      "letterTop4": 0.42,
+      "letterTop8": 0.65,
+      "wordTop3": 0.14625,
+      "actualFirstPageHitRate": 0.65,
+      "meanFirstPageLetters": 8,
+      "predictedFirstPageCoverage": 0.6570607,
+      "idealizedLetterTapsWithAbc": 1.35,
+      "meanLetterTapsFollowingRankedPages": 1.38875,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0091,
+      "desktopPredictionP95Ms": 0.0118,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 800,
+          "meanConfidence": 0.1156147,
+          "accuracy": 0.11
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        }
+      ]
+    },
+    "initialPrefix1": {
+      "positions": 800,
+      "letterNllNats": 1.1901937,
+      "letterBrier": 0.5769281,
+      "letterTop1Ece10Bins": 0.0464374,
+      "letterTop4": 0.94125,
+      "letterTop8": 0.99125,
+      "wordTop3": 0.6325,
+      "actualFirstPageHitRate": 0.9725,
+      "meanFirstPageLetters": 4.77,
+      "predictedFirstPageCoverage": 0.9754338,
+      "idealizedLetterTapsWithAbc": 1.0275,
+      "meanLetterTapsFollowingRankedPages": 1.02875,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0118,
+      "desktopPredictionP95Ms": 0.0296,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 91,
+          "meanConfidence": 0.2628679,
+          "accuracy": 0.2857143
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 92,
+          "meanConfidence": 0.3627529,
+          "accuracy": 0.326087
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 309,
+          "meanConfidence": 0.441074,
+          "accuracy": 0.5048544
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 163,
+          "meanConfidence": 0.5820877,
+          "accuracy": 0.5398773
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 12,
+          "meanConfidence": 0.6661281,
+          "accuracy": 0.8333333
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 2,
+          "meanConfidence": 0.7616716,
+          "accuracy": 1
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 4,
+          "meanConfidence": 0.8797458,
+          "accuracy": 1
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 127,
+          "meanConfidence": 0.9279916,
+          "accuracy": 0.9448819
+        }
+      ]
+    },
+    "initialPrefix2": {
+      "positions": 800,
+      "letterNllNats": 0.7420119,
+      "letterBrier": 0.3753436,
+      "letterTop1Ece10Bins": 0.0266352,
+      "letterTop4": 0.975,
+      "letterTop8": 0.9925,
+      "wordTop3": 0.72875,
+      "actualFirstPageHitRate": 0.985,
+      "meanFirstPageLetters": 4.27375,
+      "predictedFirstPageCoverage": 0.9790207,
+      "idealizedLetterTapsWithAbc": 1.015,
+      "meanLetterTapsFollowingRankedPages": 1.015,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0111,
+      "desktopPredictionP95Ms": 0.0604,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 2,
+          "meanConfidence": 0.1785719,
+          "accuracy": 0
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 24,
+          "meanConfidence": 0.2552922,
+          "accuracy": 0.4166667
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 61,
+          "meanConfidence": 0.3497133,
+          "accuracy": 0.3770492
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 95,
+          "meanConfidence": 0.4231462,
+          "accuracy": 0.4315789
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 118,
+          "meanConfidence": 0.5643613,
+          "accuracy": 0.6271186
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 46,
+          "meanConfidence": 0.659575,
+          "accuracy": 0.6304348
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 115,
+          "meanConfidence": 0.7541476,
+          "accuracy": 0.7304348
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 36,
+          "meanConfidence": 0.8755132,
+          "accuracy": 0.9444444
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 303,
+          "meanConfidence": 0.9384319,
+          "accuracy": 0.9405941
+        }
+      ]
+    },
+    "body": {
+      "positions": 2400,
+      "letterNllNats": 1.3933814,
+      "letterBrier": 0.550195,
+      "letterTop1Ece10Bins": 0.0288182,
+      "letterTop4": 0.825,
+      "letterTop8": 0.92875,
+      "wordTop3": 0.5695833,
+      "actualFirstPageHitRate": 0.9066667,
+      "meanFirstPageLetters": 5.57625,
+      "predictedFirstPageCoverage": 0.9193471,
+      "idealizedLetterTapsWithAbc": 1.0933333,
+      "meanLetterTapsFollowingRankedPages": 1.1091667,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0362,
+      "desktopPredictionP95Ms": 0.1494,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 5,
+          "meanConfidence": 0.0931654,
+          "accuracy": 0.2
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 274,
+          "meanConfidence": 0.1544276,
+          "accuracy": 0.1313869
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 330,
+          "meanConfidence": 0.2493762,
+          "accuracy": 0.2575758
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 244,
+          "meanConfidence": 0.3493908,
+          "accuracy": 0.3278689
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 228,
+          "meanConfidence": 0.4505357,
+          "accuracy": 0.4210526
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 210,
+          "meanConfidence": 0.5438526,
+          "accuracy": 0.4904762
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 155,
+          "meanConfidence": 0.6483506,
+          "accuracy": 0.5935484
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 158,
+          "meanConfidence": 0.7489344,
+          "accuracy": 0.6898734
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 168,
+          "meanConfidence": 0.8555546,
+          "accuracy": 0.7738095
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 628,
+          "meanConfidence": 0.9743132,
+          "accuracy": 0.9665605
+        }
+      ]
+    },
+    "bodyPrefix0": {
+      "positions": 800,
+      "letterNllNats": 2.2022005,
+      "letterBrier": 0.7863858,
+      "letterTop1Ece10Bins": 0.0340563,
+      "letterTop4": 0.655,
+      "letterTop8": 0.825,
+      "wordTop3": 0.40625,
+      "actualFirstPageHitRate": 0.81875,
+      "meanFirstPageLetters": 7.4675,
+      "predictedFirstPageCoverage": 0.8176683,
+      "idealizedLetterTapsWithAbc": 1.18125,
+      "meanLetterTapsFollowingRankedPages": 1.22,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0729,
+      "desktopPredictionP95Ms": 0.2067,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 5,
+          "meanConfidence": 0.0931654,
+          "accuracy": 0.2
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 261,
+          "meanConfidence": 0.1538627,
+          "accuracy": 0.1340996
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 220,
+          "meanConfidence": 0.2452627,
+          "accuracy": 0.2818182
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 110,
+          "meanConfidence": 0.3445285,
+          "accuracy": 0.3090909
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 58,
+          "meanConfidence": 0.4491507,
+          "accuracy": 0.4827586
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 47,
+          "meanConfidence": 0.538501,
+          "accuracy": 0.4680851
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 27,
+          "meanConfidence": 0.6479423,
+          "accuracy": 0.6666667
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 22,
+          "meanConfidence": 0.7493523,
+          "accuracy": 0.8636364
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 27,
+          "meanConfidence": 0.8532662,
+          "accuracy": 0.8518519
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 23,
+          "meanConfidence": 0.9436713,
+          "accuracy": 1
+        }
+      ]
+    },
+    "bodyPrefix1": {
+      "positions": 800,
+      "letterNllNats": 1.1105116,
+      "letterBrier": 0.4922815,
+      "letterTop1Ece10Bins": 0.0506537,
+      "letterTop4": 0.91,
+      "letterTop8": 0.98125,
+      "wordTop3": 0.645,
+      "actualFirstPageHitRate": 0.9425,
+      "meanFirstPageLetters": 4.55,
+      "predictedFirstPageCoverage": 0.9692211,
+      "idealizedLetterTapsWithAbc": 1.0575,
+      "meanLetterTapsFollowingRankedPages": 1.06,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0244,
+      "desktopPredictionP95Ms": 0.0695,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 3,
+          "meanConfidence": 0.173095,
+          "accuracy": 0
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 50,
+          "meanConfidence": 0.2642687,
+          "accuracy": 0.26
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 92,
+          "meanConfidence": 0.3548961,
+          "accuracy": 0.3369565
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 96,
+          "meanConfidence": 0.447732,
+          "accuracy": 0.3645833
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 100,
+          "meanConfidence": 0.548936,
+          "accuracy": 0.51
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 76,
+          "meanConfidence": 0.6525086,
+          "accuracy": 0.4868421
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 75,
+          "meanConfidence": 0.7512373,
+          "accuracy": 0.72
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 71,
+          "meanConfidence": 0.8540331,
+          "accuracy": 0.7323944
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 237,
+          "meanConfidence": 0.9733928,
+          "accuracy": 0.9620253
+        }
+      ]
+    },
+    "bodyPrefix2": {
+      "positions": 800,
+      "letterNllNats": 0.8674321,
+      "letterBrier": 0.3719176,
+      "letterTop1Ece10Bins": 0.0404669,
+      "letterTop4": 0.91,
+      "letterTop8": 0.98,
+      "wordTop3": 0.6575,
+      "actualFirstPageHitRate": 0.95875,
+      "meanFirstPageLetters": 4.71125,
+      "predictedFirstPageCoverage": 0.9711517,
+      "idealizedLetterTapsWithAbc": 1.04125,
+      "meanLetterTapsFollowingRankedPages": 1.0475,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0302,
+      "desktopPredictionP95Ms": 0.0989,
+      "calibrationBins": [
+        {
+          "from": 0,
+          "to": 0.1,
+          "samples": 0,
+          "meanConfidence": null,
+          "accuracy": null
+        },
+        {
+          "from": 0.1,
+          "to": 0.2,
+          "samples": 10,
+          "meanConfidence": 0.1635704,
+          "accuracy": 0.1
+        },
+        {
+          "from": 0.2,
+          "to": 0.3,
+          "samples": 60,
+          "meanConfidence": 0.2520484,
+          "accuracy": 0.1666667
+        },
+        {
+          "from": 0.3,
+          "to": 0.4,
+          "samples": 42,
+          "meanConfidence": 0.3500661,
+          "accuracy": 0.3571429
+        },
+        {
+          "from": 0.4,
+          "to": 0.5,
+          "samples": 74,
+          "meanConfidence": 0.4552586,
+          "accuracy": 0.4459459
+        },
+        {
+          "from": 0.5,
+          "to": 0.6,
+          "samples": 63,
+          "meanConfidence": 0.5397763,
+          "accuracy": 0.4761905
+        },
+        {
+          "from": 0.6,
+          "to": 0.7,
+          "samples": 52,
+          "meanConfidence": 0.6424856,
+          "accuracy": 0.7115385
+        },
+        {
+          "from": 0.7,
+          "to": 0.8,
+          "samples": 61,
+          "meanConfidence": 0.7459523,
+          "accuracy": 0.5901639
+        },
+        {
+          "from": 0.8,
+          "to": 0.9,
+          "samples": 70,
+          "meanConfidence": 0.8579805,
+          "accuracy": 0.7857143
+        },
+        {
+          "from": 0.9,
+          "to": 1,
+          "samples": 368,
+          "meanConfidence": 0.9768211,
+          "accuracy": 0.9673913
+        }
+      ]
+    }
+  },
+  "updatedMinusBaseline": {
+    "all": {
+      "letterNllNats": -0.1278041,
+      "letterBrier": -0.0402581,
+      "letterTop1Ece10Bins": -0.0158255,
+      "letterTop4": 0.0202083,
+      "letterTop8": 0.0064583,
+      "wordTop3": 0.0214584,
+      "actualFirstPageHitRate": 0.0091667,
+      "meanFirstPageLetters": -0.19625,
+      "predictedFirstPageCoverage": 0.010761,
+      "idealizedLetterTapsWithAbc": -0.0091667,
+      "meanLetterTapsFollowingRankedPages": -0.0154166,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": -0.0601,
+      "desktopPredictionP95Ms": -3.9674
+    },
+    "initial": {
+      "letterNllNats": -0.122005,
+      "letterBrier": -0.0428306,
+      "letterTop1Ece10Bins": -0.0270307,
+      "letterTop4": 0.02625,
+      "letterTop8": 0.00375,
+      "wordTop3": 0.0033333,
+      "actualFirstPageHitRate": 0.005,
+      "meanFirstPageLetters": -0.22375,
+      "predictedFirstPageCoverage": 0.0239853,
+      "idealizedLetterTapsWithAbc": -0.005,
+      "meanLetterTapsFollowingRankedPages": -0.0108333,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": -0.2487,
+      "desktopPredictionP95Ms": -4.7938
+    },
+    "initialPrefix0": {
+      "letterNllNats": -0.0609502,
+      "letterBrier": -0.005919,
+      "letterTop1Ece10Bins": 0.0040768,
+      "letterTop4": 0.0625,
+      "letterTop8": 0.00875,
+      "wordTop3": 0,
+      "actualFirstPageHitRate": 0.00875,
+      "meanFirstPageLetters": 0,
+      "predictedFirstPageCoverage": 0.0071217,
+      "idealizedLetterTapsWithAbc": -0.00875,
+      "meanLetterTapsFollowingRankedPages": -0.025,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": -3.7007,
+      "desktopPredictionP95Ms": -6.1451
+    },
+    "initialPrefix1": {
+      "letterNllNats": -0.1149456,
+      "letterBrier": -0.0480787,
+      "letterTop1Ece10Bins": -0.0055278,
+      "letterTop4": 0,
+      "letterTop8": 0,
+      "wordTop3": 0.00875,
+      "actualFirstPageHitRate": 0.0075,
+      "meanFirstPageLetters": 0.07,
+      "predictedFirstPageCoverage": 0.029033,
+      "idealizedLetterTapsWithAbc": -0.0075,
+      "meanLetterTapsFollowingRankedPages": -0.00875,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": -0.214,
+      "desktopPredictionP95Ms": -0.6684
+    },
+    "initialPrefix2": {
+      "letterNllNats": -0.1901193,
+      "letterBrier": -0.074494,
+      "letterTop1Ece10Bins": -0.072176,
+      "letterTop4": 0.01625,
+      "letterTop8": 0.0025,
+      "wordTop3": 0.00125,
+      "actualFirstPageHitRate": -0.00125,
+      "meanFirstPageLetters": -0.74125,
+      "predictedFirstPageCoverage": 0.0358012,
+      "idealizedLetterTapsWithAbc": 0.00125,
+      "meanLetterTapsFollowingRankedPages": 0.00125,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": -0.0943,
+      "desktopPredictionP95Ms": -0.2491
+    },
+    "body": {
+      "letterNllNats": -0.1336033,
+      "letterBrier": -0.0376856,
+      "letterTop1Ece10Bins": -0.0029928,
+      "letterTop4": 0.0141667,
+      "letterTop8": 0.0091667,
+      "wordTop3": 0.0395833,
+      "actualFirstPageHitRate": 0.0133334,
+      "meanFirstPageLetters": -0.16875,
+      "predictedFirstPageCoverage": -0.0024634,
+      "idealizedLetterTapsWithAbc": -0.0133334,
+      "meanLetterTapsFollowingRankedPages": -0.02,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0174,
+      "desktopPredictionP95Ms": 0.098
+    },
+    "bodyPrefix0": {
+      "letterNllNats": -0.1331715,
+      "letterBrier": -0.0185173,
+      "letterTop1Ece10Bins": -0.0321807,
+      "letterTop4": 0.01375,
+      "letterTop8": 0.015,
+      "wordTop3": 0.00375,
+      "actualFirstPageHitRate": 0.01,
+      "meanFirstPageLetters": -0.5,
+      "predictedFirstPageCoverage": -0.0506381,
+      "idealizedLetterTapsWithAbc": -0.01,
+      "meanLetterTapsFollowingRankedPages": -0.01875,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0439,
+      "desktopPredictionP95Ms": 0.1544
+    },
+    "bodyPrefix1": {
+      "letterNllNats": -0.0869176,
+      "letterBrier": -0.0309655,
+      "letterTop1Ece10Bins": -0.0006905,
+      "letterTop4": -0.00125,
+      "letterTop8": 0.00125,
+      "wordTop3": 0.0475,
+      "actualFirstPageHitRate": 0.00625,
+      "meanFirstPageLetters": 0.0975,
+      "predictedFirstPageCoverage": 0.0174723,
+      "idealizedLetterTapsWithAbc": -0.00625,
+      "meanLetterTapsFollowingRankedPages": -0.015,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0087,
+      "desktopPredictionP95Ms": 0.0441
+    },
+    "bodyPrefix2": {
+      "letterNllNats": -0.1807208,
+      "letterBrier": -0.0635741,
+      "letterTop1Ece10Bins": -0.0294098,
+      "letterTop4": 0.03,
+      "letterTop8": 0.01125,
+      "wordTop3": 0.0675,
+      "actualFirstPageHitRate": 0.02375,
+      "meanFirstPageLetters": -0.10375,
+      "predictedFirstPageCoverage": 0.0257756,
+      "idealizedLetterTapsWithAbc": -0.02375,
+      "meanLetterTapsFollowingRankedPages": -0.02625,
+      "unreachableFromRankedPagesRate": 0,
+      "desktopPredictionMedianMs": 0.0136,
+      "desktopPredictionP95Ms": -0.0053
+    }
+  },
+  "pairedUncertainty": {
+    "method": "Deterministic Poisson cluster bootstrap, 1000 replicates, sequence SHA256 as cluster, shared weights across prefixes, re-normalized within six strata and macro-averaged. Percentile 95% intervals for updated minus baseline. Does not capture corpus-domain bias or near-duplicate templates.",
+    "uniqueSequenceClusters": 4564,
+    "updatedMinusBaseline": {
+      "letterNllNats": {
+        "low95": -0.1413242,
+        "high95": -0.1131632
+      },
+      "letterTop4": {
+        "low95": 0.0136572,
+        "high95": 0.0269813
+      },
+      "letterTop8": {
+        "low95": 0.0012576,
+        "high95": 0.0118506
+      },
+      "wordTop3": {
+        "low95": 0.016409,
+        "high95": 0.0263853
+      },
+      "actualFirstPageHitRate": {
+        "low95": 0.003427,
+        "high95": 0.01508
+      },
+      "idealizedLetterTapsWithAbc": {
+        "low95": -0.0149583,
+        "high95": -0.003303
+      }
+    }
+  },
+  "limitations": [
+    "Tatoeba translated/example sentences overrepresent names and repeated templates; not private chat or real users.",
+    "Exact duplicates removed before splitting; near-duplicate paraphrases can remain across train/dev/test. External wordfreq data may overlap the corpus.",
+    "New model trains on folds2..19; baseline was already trained on folds1..19. Both exclude TESTfold0. Baseline DEV performance would be optimistic, so baseline was not used for parameter selection.",
+    "End-of-word probability and complete-word probabilities are not calibrated by the fitted letter temperature. Test excludes completed-word targets.",
+    "Desktop timings depend on cache, process scheduling and JIT. Initial and body strata share warm caches. No smartphone timing or human speed claim.",
+    "Fitts/Hick/default error costs are starting assumptions, not fitted user motor measurements."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "cinque-mobile",
+  "version": "0.2.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "prepare": "node scripts/prepare-runtime-data.mjs",
+    "start": "node scripts/start-dev.mjs",
+    "start:go": "node scripts/start-dev.mjs",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "node scripts/start-dev.mjs --web",
+    "diagnostics": "node scripts/dev-diagnostics.mjs",
+    "test:hermes": "node scripts/test-hermes.mjs",
+    "evaluate:calibrate": "tsx scripts/evaluate_probability.ts --calibrate",
+    "evaluate:test": "tsx scripts/evaluate_probability.ts --test",
+    "typecheck": "tsc --noEmit",
+    "pretest": "node scripts/prepare-runtime-data.mjs",
+    "test": "tsx --test tests/*.test.ts",
+    "preexport:web": "node scripts/prepare-runtime-data.mjs",
+    "preexport:native": "node scripts/prepare-runtime-data.mjs",
+    "export:web": "expo export --platform web",
+    "export:native": "expo export --platform android --platform ios",
+    "build:android": "npx eas-cli@latest build --platform android --profile preview",
+    "build:ios": "npx eas-cli@latest build --platform ios --profile preview"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~57.0.16",
+    "expo": "~57.0.27",
+    "expo-clipboard": "~57.0.2",
+    "expo-constants": "~57.0.21",
+    "expo-status-bar": "~57.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-web": "^0.21.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "~19.2.2",
+    "tsx": "^4.20.0",
+    "typescript": "~6.0.3"
+  }
+}

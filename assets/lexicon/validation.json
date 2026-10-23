@@ -1,0 +1,11 @@
+{
+  "entries": 316423,
+  "bytes": 5527441,
+  "sha256": "cf4482aeeed161fcfdb4bb6a6ca36ba10020b618bee0b863650aaba0b73e5c68",
+  "sourceDataSha256": "0b5500e425a50e0f1fefb256d9125e74f586ac6b2f2a6e41bc96634bd5613cc7",
+  "scoreRange": [
+    101,
+    759
+  ],
+  "checks": "unique/sorted words, allowed alphabet, score range, JSON round trip, Italian accents, conjugations, source frequency ordering"
+}

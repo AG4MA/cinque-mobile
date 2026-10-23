@@ -1,0 +1,94 @@
+{
+  "sourceSha256": "05853b510a67ad0615b993e29ae7cecb482af12524a52b9646dcfe76ea29afa3",
+  "datasetSha256": "9c6dbc3394988a9c4f64820af7ef60afa1492fe6e50a6b794fda8457f24e2596",
+  "policySha256": "e58c932c775c3cb520912fbd3fb49677e3e72bc9d50e260a39532f204d2c7136",
+  "holdoutSequences": 45160,
+  "method": "All held-out normalized sequence opening words, counted once per unique sequence. Same SHA-256 modulo20 split as build_context.py. Evaluate only the first word, which original app-evaluation.json excluded. For prefix length N, exclude target words of length <=N. Both policies receive exactly the same prefix and no prior text.",
+  "policy": "Use all observed training opening words. Rank with count^0.8 times wordfreq frequency^0.25; mix complete opening letter marginals 50/50 with lexical marginals, opening word scores 85/15 with lexical scores. These are heuristic ranking weights, not calibrated probabilities. Body-of-sentence predictions are unchanged.",
+  "metrics": [
+    {
+      "prefixLength": 0,
+      "positions": 45160,
+      "originalWordTop3": 9612,
+      "updatedWordTop3": 6715,
+      "originalWordTop5": 12294,
+      "updatedWordTop5": 10065,
+      "originalLetterTop4": 16426,
+      "updatedLetterTop4": 15437,
+      "originalLetterTop8": 26823,
+      "updatedLetterTop8": 27375,
+      "gainsWordTop3": 2682,
+      "lossesWordTop3": 5579,
+      "rates": {
+        "originalWordTop3": 0.212843,
+        "updatedWordTop3": 0.148694,
+        "originalWordTop5": 0.272232,
+        "updatedWordTop5": 0.222874,
+        "originalLetterTop4": 0.363729,
+        "updatedLetterTop4": 0.341829,
+        "originalLetterTop8": 0.593955,
+        "updatedLetterTop8": 0.606178,
+        "gainsWordTop3": 0.059389,
+        "lossesWordTop3": 0.123539
+      }
+    },
+    {
+      "prefixLength": 1,
+      "positions": 42035,
+      "originalWordTop3": 22238,
+      "updatedWordTop3": 26223,
+      "originalWordTop5": 24546,
+      "updatedWordTop5": 30228,
+      "originalLetterTop4": 38227,
+      "updatedLetterTop4": 39484,
+      "originalLetterTop8": 41373,
+      "updatedLetterTop8": 41707,
+      "gainsWordTop3": 4961,
+      "lossesWordTop3": 976,
+      "rates": {
+        "originalWordTop3": 0.529035,
+        "updatedWordTop3": 0.623837,
+        "originalWordTop5": 0.583942,
+        "updatedWordTop5": 0.719115,
+        "originalLetterTop4": 0.909409,
+        "updatedLetterTop4": 0.939312,
+        "originalLetterTop8": 0.984251,
+        "updatedLetterTop8": 0.992197,
+        "gainsWordTop3": 0.118021,
+        "lossesWordTop3": 0.023219
+      }
+    },
+    {
+      "prefixLength": 2,
+      "positions": 30566,
+      "originalWordTop3": 18678,
+      "updatedWordTop3": 22941,
+      "originalWordTop5": 19877,
+      "updatedWordTop5": 24582,
+      "originalLetterTop4": 27794,
+      "updatedLetterTop4": 29161,
+      "originalLetterTop8": 29697,
+      "updatedLetterTop8": 30331,
+      "gainsWordTop3": 4415,
+      "lossesWordTop3": 152,
+      "rates": {
+        "originalWordTop3": 0.611071,
+        "updatedWordTop3": 0.75054,
+        "originalWordTop5": 0.650298,
+        "updatedWordTop5": 0.804227,
+        "originalLetterTop4": 0.909311,
+        "updatedLetterTop4": 0.954034,
+        "originalLetterTop8": 0.97157,
+        "updatedLetterTop8": 0.992312,
+        "gainsWordTop3": 0.144442,
+        "lossesWordTop3": 0.004973
+      }
+    }
+  ],
+  "limitations": [
+    "Tatoeba openings are translated examples and overrepresent names such as Tom and Mary; this is not a private chat benchmark.",
+    "Smoothing intentionally reduces repeated corpus names, so zero-prefix same-corpus hit rates may decrease; all gains and losses are reported.",
+    "Parameters were selected to reduce corpus concentration and improve direct access to broad initials and observed conversational prefixes; no claim of optimality.",
+    "Near-duplicate paraphrases can occur across the exact-deduplicated split; wordfreq may overlap Tatoeba."
+  ]
+}

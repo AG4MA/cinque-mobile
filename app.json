@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Cinque",
+    "slug": "cinque-offline",
+    "version": "0.2.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "scheme": "cinque",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.cinque.offline",
+      "infoPlist": { "ITSAppUsesNonExemptEncryption": false, "UIFileSharingEnabled": false }
+    },
+    "android": {
+      "package": "app.cinque.offline",
+      "allowBackup": false,
+      "blockedPermissions": ["android.permission.RECORD_AUDIO", "android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"]
+    },
+    "web": { "name": "Cinque", "bundler": "metro" }
+  }
+}

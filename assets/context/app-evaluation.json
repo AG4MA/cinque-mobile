@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-12",
+  "implementation": "Production StatisticalEngine.predict compared against production LexicalEngine.predict.",
+  "sourceSha256": "05853b510a67ad0615b993e29ae7cecb482af12524a52b9646dcfe76ea29afa3",
+  "contextDatasetSha256": "b868aac7d44df3a824c40aa39c664362927bbc6801b5ee7ae8e51cd7eac6fa5c",
+  "implementationSha256": {
+    "statisticalEngine": "f0346e72f6b3616e581f9104d4bc9d27b78513b51b62367ec7baa96e97a7ad26",
+    "lexicalEngine": "a033191e782afe50093536b18d576fa1eaa39cd4f81c0c283f11f6f44d6166df"
+  },
+  "method": "Select 4000 next-word positions deterministically by lowest SHA-256(sequenceDigest+position) across all held-out normalized token sequences. Use the builder tokenizer and split: sequence SHA256 first8 bytes modulo20=0. Exact duplicate sequences deduplicated before sampling; none used to train n-grams. Only target words of at least3 letters. Same samples evaluated with no prefix and with2 prefix letters. Both lexical memories replaced by preceding words of the current sample, so no cross-sentence learning leaks into the comparison.",
+  "sampleCount": 4000,
+  "availableHoldoutSequences": 45160,
+  "availableEligiblePositions": 171232,
+  "sampleDigest": "5d2bffd8018439f73ce52ec0f1af33ed4a3c654bdef293f78c884af18915f21e",
+  "hardware": "AMD Ryzen AI 9 HX 470 w/ Radeon 890M           ; win32 x64; Node v26.4.0",
+  "wallSeconds": 0.551,
+  "metrics": {
+    "emptyPrefix": {
+      "positions": 4000,
+      "lexicalTop1": 0,
+      "lexicalTop5": 110,
+      "appTop1": 659,
+      "appTop5": 1366,
+      "lexicalNextLetterTop4": 1606,
+      "appNextLetterTop4": 2198,
+      "gainsTop5": 1278,
+      "regressionsTop5": 22,
+      "positionsUsingContext": 3889,
+      "rates": {
+        "lexicalTop1": 0,
+        "lexicalTop5": 0.0275,
+        "appTop1": 0.16475,
+        "appTop5": 0.3415,
+        "lexicalNextLetterTop4": 0.4015,
+        "appNextLetterTop4": 0.5495,
+        "gainsTop5": 0.3195,
+        "regressionsTop5": 0.0055,
+        "positionsUsingContext": 0.97225
+      },
+      "desktopLatencyMs": {
+        "lexicalMedian": 0.011,
+        "lexicalP95": 0.024,
+        "appMedian": 0.039,
+        "appP95": 0.081,
+        "appMax": 28.885
+      }
+    },
+    "twoLetters": {
+      "positions": 4000,
+      "lexicalTop1": 715,
+      "lexicalTop5": 1700,
+      "appTop1": 1720,
+      "appTop5": 2358,
+      "lexicalNextLetterTop4": 3207,
+      "appNextLetterTop4": 3468,
+      "gainsTop5": 660,
+      "regressionsTop5": 2,
+      "positionsUsingContext": 2034,
+      "rates": {
+        "lexicalTop1": 0.17875,
+        "lexicalTop5": 0.425,
+        "appTop1": 0.43,
+        "appTop5": 0.5895,
+        "lexicalNextLetterTop4": 0.80175,
+        "appNextLetterTop4": 0.867,
+        "gainsTop5": 0.165,
+        "regressionsTop5": 0.0005,
+        "positionsUsingContext": 0.5085
+      },
+      "desktopLatencyMs": {
+        "lexicalMedian": 0.013,
+        "lexicalP95": 0.039,
+        "appMedian": 0.019,
+        "appP95": 0.049,
+        "appMax": 1.465
+      }
+    }
+  },
+  "limitations": [
+    "Same-corpus test of Tatoeba translated/example sentences, not a representative sample of private messages.",
+    "Near-duplicate paraphrases and recurring names can occur across the exact-deduplicated split.",
+    "The external wordfreq unigram corpus can overlap Tatoeba; it is shared by both compared engines.",
+    "Desktop Node CPU timings with naturally warmed caches. They exclude JSON loading/rendering and do not measure phone performance or user typing speed.",
+    "Top5 word hit tests one observed next word; other suggestions may still be reasonable. Gains and regressions are reported separately."
+  ]
+}

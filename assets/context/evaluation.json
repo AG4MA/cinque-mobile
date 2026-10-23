@@ -1,0 +1,27 @@
+{
+  "method": "All held-out unique normalized token sequences; all internal next-word positions (sentence initial positions excluded). Holdout iff first 8 SHA-256 bytes of normalized space-joined tokens modulo20 equal0. Exact duplicate normalized sequences are deduplicated and cannot cross splits.",
+  "ranking": "Simple longest-context-first backoff (3,2,1 previous words), frequency-sorted candidates, fill top5 with wordfreq unigram. This evaluates the asset reference policy, not the final app's adaptive ranker.",
+  "holdoutSentencesEvaluated": 45160,
+  "limitations": "Same-corpus test, short translated example sentences with many near-duplicates and recurring names. Does not measure real chat accuracy, semantic understanding, smartphone latency or user speed. Two-letter case evaluates only target words of at least three letters, so the prefix never discloses the entire target.",
+  "desktopPythonMedianLookupMicroseconds": 4.7,
+  "emptyPrefix": {
+    "positions": 228027,
+    "unigramTop5Hits": 20991,
+    "contextTop5Hits": 105618,
+    "contextTop1Hits": 55578,
+    "positionsWithContextCandidate": 224656,
+    "unigramTop5Rate": 0.092055,
+    "contextTop5Rate": 0.463182,
+    "contextTop1Rate": 0.243734
+  },
+  "twoLetters": {
+    "positions": 171232,
+    "unigramTop5Hits": 75724,
+    "contextTop5Hits": 105958,
+    "contextTop1Hits": 81095,
+    "positionsWithContextCandidate": 94168,
+    "unigramTop5Rate": 0.44223,
+    "contextTop5Rate": 0.618798,
+    "contextTop1Rate": 0.473597
+  }
+}

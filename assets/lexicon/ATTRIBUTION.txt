@@ -1,0 +1,46 @@
+CINQUE - LESSICO ITALIANO OFFLINE
+
+Fonte: wordfreq 3.1.1, lista italiana "large", di Robyn Speer.
+Copyright 2022 Robyn Speer.
+https://github.com/rspeer/wordfreq
+Citazione: Robyn Speer (2022), rspeer/wordfreq: v3.0.
+https://doi.org/10.5281/zenodo.7199437
+
+I dati e questa elaborazione dei dati sono distribuiti con licenza
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+https://creativecommons.org/licenses/by-sa/4.0/
+Il testo della licenza è in licenses/CC-BY-SA-4.0.txt.
+Il NOTICE originale completo è in licenses/wordfreq-NOTICE.md ed è incluso
+anche nei metadata di it.json: mantenerlo quando si redistribuiscono i dati.
+Il codice originale del pacchetto wordfreq usa Apache License 2.0; non viene
+eseguito sul telefono. La relativa licenza è inclusa per riferimento.
+
+La fonte combina corpora reali, fra cui Wikipedia, Google Books Ngrams,
+Leeds Internet Corpus, ParaCrawl, OPUS OpenSubtitles/OpenSubtitles e
+SUBTLEX di Marc Brysbaert et al. SUBTLEX è dato liberamente disponibile.
+Il NOTICE dettaglia le attribuzioni del pacchetto originale e le condizioni.
+Questa app non è approvata o promossa dagli autori delle fonti.
+
+Modifiche: selezione dati italiani, normalizzazione Unicode NFC/minuscole,
+normalizzazione apostrofi, filtro dei token numerici e dei simboli,
+codifica in centesimi interi della frequenza Zipf, ordinamento lessicografico.
+Non sono state inventate frequenze e non è stato applicato un taglio top-N.
+
+Formato: oggetto JSON con metadata e entries. Ciascuna entry è
+[parola, zipf100]; zipf100 = 100 * log10(occorrenze per miliardo),
+arrotondato all'intero. Frequenza stimata = 10 ** (zipf100 / 100 - 9).
+È una prior di frequenza singola, non una probabilità contestuale.
+
+Limiti: lessico esteso osservato in corpora, non dizionario normativo o
+completo in assoluto; contiene anche nomi, prestiti, sigle, refusi e parole
+straniere presenti nei corpora italiani. Fotografia dell'uso circa 2021.
+wordfreq separa molte elisioni (l'acqua -> l + acqua): l'app gestisce
+separatamente l'apostrofo. Il numero di forme non misura l'accuratezza.
+Fornito senza garanzie, come previsto dalla licenza allegata.
+
+Rigenerazione dalla radice del progetto:
+    python -m pip install wordfreq==3.1.1
+    python scripts/build_lexicon.py
+
+La rigenerazione è un'operazione di sviluppo. L'app usa l'asset incluso e
+non scarica dizionari né invia testo all'esterno per effettuare previsioni.

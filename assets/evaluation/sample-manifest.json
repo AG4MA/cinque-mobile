@@ -1,0 +1,1 @@
+{"sourceSha256":"05853b510a67ad0615b993e29ae7cecb482af12524a52b9646dcfe76ea29afa3","sequences":{"train":817943,"dev":45415,"test":45160},"files":{"dev":{"samples":2400,"sha256":"59aa0c4c41ba50895b25868f868b129bda407cc426d25f3ee054765949ac567c","bytes":700325},"test":{"samples":4800,"sha256":"33daa4f8af01ec610e10ec5c140cfc53704a1ec3b1941853e48e2ec5881c083c","bytes":1401873}}}

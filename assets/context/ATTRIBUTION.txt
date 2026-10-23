@@ -1,0 +1,52 @@
+CINQUE - CONTESTO STATISTICO ITALIANO OFFLINE
+
+Fonte: Tatoeba, frasi italiane e relativi autori.
+https://tatoeba.org
+https://tatoeba.org/en/downloads
+Snapshot export settimanale: 10 ottobre 2026.
+File: ita_sentences_detailed.tsv.bz2, 14.926.010 byte.
+SHA-256: 05853b510a67ad0615b993e29ae7cecb482af12524a52b9646dcfe76ea29afa3
+Download: https://downloads.tatoeba.org/exports/per_language/ita/ita_sentences_detailed.tsv.bz2
+
+Testi sorgente con licenza Creative Commons Attribution 2.0 France.
+https://creativecommons.org/licenses/by/2.0/fr/
+Il codice giuridico è allegato in licenses/CC-BY-2.0-FR.html.
+Le condizioni d'uso del corpus sono descritte qui:
+https://en.wiki.tatoeba.org/articles/show/using-the-tatoeba-corpus
+I 737 nomi di contributori disponibili nell'export sono accreditati in
+CONTRIBUTORS.txt e incorporati nei metadata dell'asset.
+L'app e questa elaborazione non sono approvate o promosse da Tatoeba.
+
+Modifiche effettuate:
+- selezione delle righe italiane e normalizzazione Unicode/minuscole;
+- divisione frasi su punto, punto esclamativo, interrogativo e a capo;
+- tokenizzazione sulle lettere italiane; apostrofi separano i token;
+- sequenze da 2 a 80 token, token lunghi al massimo 48 lettere;
+- rimozione duplicati esatti dopo normalizzazione;
+- esclusione di un holdout deterministico del 5% basato sull'hash;
+- conteggio di bigrammi, trigrammi e quadrigrammi osservati;
+- soglia di almeno 2 osservazioni, massimo 8 continuazioni per contesto;
+- conservazione dei contesti di una parola e poi di quelli più frequenti,
+  fino a 150.000 contesti totali. Nessun conteggio inventato.
+
+Formato: {metadata, contexts} con contexts ordinato lessicograficamente.
+Ciascuna voce: ["contesto di parole", [["parola successiva", conteggio], ...]].
+Il marcatore <s> indica l'inizio della frase. Contesto massimo: 3 token.
+I conteggi delle sole continuazioni conservate non formano una distribuzione
+completa né probabilità calibrate. L'app usa un backoff verso contesti più
+brevi e verso il lessico generale, oltre all'apprendimento locale dell'utente.
+
+Limiti: esempi tradotti/didattici, con molti nomi propri ricorrenti e frasi
+simili; non è un campione rappresentativo di messaggi privati italiani.
+Il modello non interpreta semanticamente la frase completa. La valutazione
+allegata usa frasi escluse dall'addestramento nello stesso corpus, ma può
+contenere parafrasi simili a quelle di training. Non misura la velocità
+del telefono, quella dell'utente o l'accuratezza generale su chat reali.
+
+Rigenerazione (solo Python standard library):
+python scripts/build_context.py --source /percorso/ita_sentences_detailed.tsv.bz2
+
+Il download ufficiale cambia ogni settimana. Per una rigenerazione identica
+conservare il file sorgente con l'hash indicato. Lo script rifiuta snapshot
+diversi finché hash e documentazione non vengono aggiornati deliberatamente.
+Il dataset compilato è incluso nell'app: non serve scaricarlo sul telefono.
